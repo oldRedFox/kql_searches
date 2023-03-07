@@ -1,3 +1,9 @@
-List attachments received:
+#List attachments received:
 EmailAttachmentInfo
-| where FileName endswith ".html"
+| where FileName endswith ".html" or FileName endswith ".htm"
+
+
+#exclude email sent from your domain:
+EmailAttachmentInfo
+| where FileName endswith ".html" or FileName endswith ".htm"
+| where SenderFromAddress !contains "@your_domain.here"
