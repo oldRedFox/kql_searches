@@ -1,9 +1,10 @@
 #List attachments received:
 EmailAttachmentInfo
 | where FileName endswith ".html" or FileName endswith ".htm"
-
+| project Timestamp, SenderFromAddress, SenderDisplayName, RecipientEmailAddress, FileName, FileSize,SHA256, NetworkMessageId
 
 #exclude email sent from your domain:
 EmailAttachmentInfo
 | where FileName endswith ".html" or FileName endswith ".htm"
 | where SenderFromAddress !contains "@your_domain.here"
+| project Timestamp, SenderFromAddress, SenderDisplayName, RecipientEmailAddress, FileName, FileSize,SHA256, NetworkMessageId
