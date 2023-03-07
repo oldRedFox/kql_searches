@@ -1,0 +1,3 @@
+List attachments received:
+EmailAttachmentInfo
+| where FileName endswith ".html"
